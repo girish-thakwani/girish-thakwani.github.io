@@ -45,7 +45,7 @@ function displayScore(x)
 	if(x==3){
 	var name=document.getElementById('name').selectedIndex;
 	score.textContent="Congratulation!!! You Got a Win "+names[name].text+'.';
-	photo.style.backgroundImage="url("+icons[names[name].index]+")";
+	photo.style.backgroundImage="url("+icons[names[name].index-1]+")";
 	mess.textContent="Go! Go! Go! Get Your Gift From Him !!!";
 }	
 	else
