@@ -1,0 +1,1206 @@
+---
+---
+
+// Dimensions
+$max-content-width: 1060px;
+
+@import
+  "variables",
+  "themes",
+  "layout",
+  "base",
+  "distill",
+  "cv",
+  "tabs",
+  "teachings",
+  "typograms",
+  "font-awesome/fontawesome",
+  "font-awesome/brands",
+  "font-awesome/solid",
+  "font-awesome/regular",
+  "tabler-icons/tabler-icons.scss",
+  "tabler-icons/tabler-icons-filled.scss",
+  "tabler-icons/tabler-icons-outline.scss"
+;
+
+// ============================================================================
+// Custom thesis mockup styling (about, cv, projects)
+// Adapted from mockups/thesis_*.html
+// ============================================================================
+
+:root {
+  --bg: #faf7f2;
+  --bg2: #f2ece1;
+  --bg3: #e9e2d2;
+  --ink: #1a1714;
+  --ink2: #3d3830;
+  --muted: #9a8f80;
+  --red: #b83232;
+  --red-dim: #7a2020;
+  --rule: rgba(26, 23, 20, 0.10);
+  --shadow: 0 2px 12px rgba(26, 23, 20, 0.09), 0 1px 3px rgba(26, 23, 20, 0.06);
+
+  // Override al-folio's default purple theme color → site red
+  --global-theme-color: #b83232;
+  --global-hover-color: #b83232;
+  --global-highlight-color: #b83232;
+  --global-code-bg-color: rgba(184, 50, 50, 0.05);
+}
+
+html,
+body {
+  background: var(--bg) !important;
+  color: var(--ink) !important;
+  font-family: 'Space Mono', monospace !important;
+  font-size: 13px;
+  min-height: 900px;
+}
+
+// paper grain overlay
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+// ── NAVBAR ──
+.navbar {
+  background: var(--bg) !important;
+  border-bottom: 1px solid var(--rule) !important;
+  padding: 0 !important;
+  box-shadow: var(--shadow) !important;
+}
+
+.navbar .container {
+  padding: 22px 72px !important;
+  max-width: 100% !important;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.navbar-brand.title {
+  font-family: 'EB Garamond', serif !important;
+  font-size: 20px !important;
+  font-weight: 500 !important;
+  color: var(--ink) !important;
+  font-style: italic;
+  letter-spacing: 0.03em;
+}
+
+.navbar-brand.title::after {
+  content: '.';
+  color: var(--red);
+}
+
+.navbar-brand.title {
+  display: none !important;
+}
+
+.navbar-nav {
+  display: flex !important;
+  flex-direction: row !important;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item .nav-link {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 10px !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  color: var(--muted) !important;
+  padding: 4px 16px !important;
+}
+
+.nav-item.active .nav-link {
+  color: var(--red) !important;
+  border-bottom: 1px solid var(--red);
+}
+
+// ── NAVBAR LOGO ──
+.navbar-logo {
+  height: 28px !important;
+  width: auto !important;
+  display: block !important;
+  object-fit: contain !important;
+}
+.navbar-logo-dark  { display: none !important; }
+.navbar-logo-light { display: block !important; }
+html[data-theme="dark"] .navbar-logo-light { display: none !important; }
+html[data-theme="dark"] .navbar-logo-dark  { display: block !important; }
+.navbar-logo-link { padding: 4px 0 !important; }
+
+// Fix dark mode toggle: moon in light mode, sun in dark mode, hide system icon
+:root #light-toggle-system {
+  display: none !important;
+}
+
+// Light mode: show moon (dark toggle button)
+:root #light-toggle-dark {
+  display: flex !important;
+  align-items: center !important;
+  padding-top: 0 !important;
+  padding-left: 10px !important;
+}
+
+// Light mode: hide sun
+:root #light-toggle-light {
+  display: none !important;
+}
+
+// Dark mode: show sun (light toggle button)
+html[data-theme="dark"] #light-toggle-light {
+  display: flex !important;
+  align-items: center !important;
+  padding-top: 0 !important;
+  padding-left: 10px !important;
+}
+
+// Dark mode: hide moon
+html[data-theme="dark"] #light-toggle-dark {
+  display: none !important;
+}
+
+html[data-theme="light"] #light-toggle-dark {
+  display: flex !important;
+  align-items: center !important;
+  padding-top: 0 !important;
+  padding-left: 10px !important;
+}
+
+html[data-theme="light"] #light-toggle-light {
+  display: none !important;
+}
+
+// Shared page container
+.container.mt-5 {
+  max-width: 1060px !important;
+  padding-top: 2px !important;
+  padding-left: 72px !important;
+  padding-right: 72px !important;
+}
+
+// ── ABOUT PAGE ELEMENTS (mapped onto existing al-folio classes) ──
+.post .post-title {
+  font-family: 'EB Garamond', serif !important;
+  font-size: 74px !important;
+  font-weight: 500 !important;
+  font-style: normal !important;
+  color: var(--ink) !important;
+  line-height: 1.0 !important;
+  letter-spacing: 0.02em !important;
+  margin-bottom: 12px !important;
+}
+
+.post-description {
+  font-family: 'EB Garamond', serif !important;
+  font-size: 19px !important;
+  color: var(--muted) !important;
+  font-style: italic !important;
+  border-left: 2px solid var(--red) !important;
+  padding-left: 16px !important;
+  margin-bottom: 36px !important;
+  line-height: 1.5 !important;
+}
+
+.post-description a,
+.post .desc a {
+  color: var(--red) !important;
+}
+
+// map profile card to existing profile include (scaled to 0.75x)
+.profile {
+  float: right !important;
+  background: var(--red) !important;
+  border: 1px solid var(--red-dim) !important;
+  padding: 18px !important;
+  width: 236px !important;
+  margin-left: 33px !important;
+  margin-bottom: 21px !important;
+  text-align: center !important;
+  box-shadow: var(--shadow) !important;
+}
+
+.profile img {
+  width: 100% !important;
+  border-radius: 0 !important;
+  filter: sepia(18%) contrast(1.04) !important;
+  border: none !important;
+  box-shadow: none !important;
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-bottom: 14px !important;
+}
+
+.profile .address {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 10px !important;
+  color: #ffffff !important;
+  letter-spacing: 0.08em !important;
+  line-height: 1.4 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.3) !important;
+  padding-top: 8px !important;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+// Override global article a red color — profile links must be white
+.post .profile a,
+.post .profile a:link,
+.post .profile a:visited,
+article .profile a,
+article .profile a:link,
+article .profile a:visited {
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+.post .profile a:hover,
+article .profile a:hover {
+  color: #ffffff !important;
+  opacity: 0.8 !important;
+  text-decoration: underline !important;
+}
+
+.profile .more-info {
+  text-align: center !important;
+}
+
+.profile .more-info p {
+  display: block !important;
+  margin: 2px 0 !important;
+  font-size: 14px !important;
+  color: #ffffff !important;
+}
+
+.profile .address {
+  text-align: center !important;
+}
+
+.profile .btn-resume {
+  display: none !important;
+}
+
+article p {
+  font-family: 'EB Garamond', serif !important;
+  font-size: 19px !important;
+  line-height: 1.75 !important;
+  color: var(--ink2) !important;
+  margin-bottom: 1.2em !important;
+}
+
+article strong {
+  font-weight: 600 !important;
+  color: var(--ink) !important;
+}
+
+article a {
+  color: var(--red) !important;
+  text-decoration-underline-offset: 3px;
+  text-decoration-color: rgba(184, 50, 50, 0.3) !important;
+}
+
+article a:hover {
+  color: var(--red) !important;
+  text-decoration-color: var(--red) !important;
+}
+
+// ── CV PAGE (will mostly affect any custom cv markup using these classes) ──
+.cv-page h1 {
+  font-family: 'EB Garamond', serif !important;
+  font-size: 60px !important;
+  font-weight: 500 !important;
+  font-style: italic !important;
+  color: var(--ink) !important;
+  line-height: 1.0 !important;
+  margin-bottom: 6px !important;
+}
+
+.cv-page .cv-subtitle {
+  font-family: 'EB Garamond', serif;
+  font-size: 17px;
+  color: var(--muted);
+  font-style: italic;
+  border-left: 2px solid var(--red);
+  padding-left: 16px;
+  margin-bottom: 32px;
+  line-height: 1.5;
+}
+
+.cv-page h3 {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 9px !important;
+  letter-spacing: 0.3em !important;
+  text-transform: uppercase !important;
+  color: var(--red) !important;
+  font-weight: 400 !important;
+  border-bottom: 1px solid var(--rule) !important;
+  padding-bottom: 10px !important;
+  margin: 0 0 24px !important;
+}
+
+// ── CV ACTUAL LAYOUT ──
+
+// PDF download icon in CV page header
+.post-title a i.fa-file-pdf {
+  color: var(--global-theme-color) !important;
+}
+
+// Date badge — subtle chip
+.badge.danger-color-dark {
+  background-color: var(--bg3) !important;
+  color: var(--red) !important;
+  border-radius: 4px !important;
+  padding: 2px 8px !important;
+  box-shadow: none !important;
+  display: inline-block !important;
+}
+
+// Date column: fixed width, flex column
+.cv-date-col {
+  flex: 0 0 115px !important;
+  width: 115px !important;
+  min-width: 115px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  padding-top: 3px !important;
+  padding-right: 16px !important;
+}
+
+// Year label inside date column
+.cv-year-label {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 9px !important;
+  font-weight: 400 !important;
+  color: var(--red) !important;
+  letter-spacing: 0.04em !important;
+  line-height: 1.5 !important;
+  white-space: nowrap !important;
+  text-align: left !important;
+  text-transform: none !important;
+}
+
+// Entry body: takes the remaining width
+.cv-entry-body {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+}
+
+// Make each list-group-item a flex row so date+body align
+.cv .list-group-item > .row {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: flex-start !important;
+}
+
+// Fix all CV icon colors
+i.iconinstitution,
+i.iconlocation,
+i.icondepartment {
+  color: var(--red) !important;
+}
+
+// Single-column layout: all sections stack top to bottom
+.cv {
+  display: block !important;
+}
+
+// Hide anchor elements — they create unwanted spacing
+.cv > a.anchor {
+  display: none !important;
+}
+
+// All CV section cards get consistent border styling
+.cv > div {
+  background: var(--bg2) !important;
+  border: 1px solid var(--rule) !important;
+  border-radius: 0 !important;
+  margin-bottom: 16px !important;
+  box-shadow: var(--shadow) !important;
+}
+
+// Section card titles (Education, Experience, etc.)
+.cv .card-title {
+  font-family: 'EB Garamond', serif !important;
+  font-size: 15px !important;
+  letter-spacing: 0.3em !important;
+  text-transform: uppercase !important;
+  color: var(--red) !important;
+  font-weight: 500 !important;
+  border-bottom: 1px solid var(--rule) !important;
+  padding-bottom: 10px !important;
+  margin-bottom: 16px !important;
+}
+
+// CV list group items
+.cv .list-group-item {
+  background-color: transparent !important;
+  border-color: var(--rule) !important;
+}
+
+// General Info icon column
+.cv-info-icon {
+  color: var(--red) !important;
+  width: 20px !important;
+  min-width: 20px !important;
+  text-align: center !important;
+  font-size: 11px !important;
+  padding-right: 4px !important;
+  vertical-align: middle !important;
+}
+
+// General Info field name
+.cv-info-name {
+  font-family: 'EB Garamond', serif !important;
+  font-style: italic !important;
+  font-size: 13px !important;
+  color: var(--muted) !important;
+  letter-spacing: 0.01em !important;
+  text-transform: none !important;
+  white-space: nowrap !important;
+  vertical-align: middle !important;
+}
+
+// General Info field value
+.cv-info-value {
+  font-family: 'EB Garamond', serif !important;
+  font-size: 14px !important;
+  color: var(--ink2) !important;
+  word-break: break-word !important;
+  vertical-align: middle !important;
+  line-height: 1.4 !important;
+}
+
+.cv-info-value a {
+  color: var(--red) !important;
+  text-decoration: none !important;
+}
+
+.cv-info-value a:hover {
+  text-decoration: underline !important;
+}
+
+// Resume section logo (left column: logo above date/location)
+.cv-resume-logo {
+  width: 135px !important;
+  height: 135px !important;
+  object-fit: contain !important;
+  display: block !important;
+  margin: 0 auto !important;
+  border-radius: 6px !important;
+  background: #fff !important;
+  padding: 4px !important;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.13) !important;
+}
+
+// Institution logo image
+.cv-institution-logo {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 6px !important;
+  object-fit: contain !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+  background: #fff !important;
+  padding: 3px !important;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.13) !important;
+}
+
+// Date column consistent flex alignment across all sections
+.cv .date-column {
+  padding-top: 3px !important;
+}
+
+// Basics table: Space Mono labels, EB Garamond values
+.cv .table-cv-map td:first-child {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 9px !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  color: var(--muted) !important;
+  font-weight: 400 !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+}
+
+.cv .table-cv-map td:first-child b {
+  font-weight: 400 !important;
+}
+
+.cv .table-cv-map td:last-child {
+  font-family: 'EB Garamond', serif !important;
+  font-size: 16px !important;
+  color: var(--ink2) !important;
+  vertical-align: middle !important;
+}
+
+.cv .table-cv-map td:last-child a {
+  color: var(--red) !important;
+  text-decoration: none !important;
+}
+
+// General badge reset inside CV (don't override cv-year-label specifics)
+.cv .badge {
+  white-space: normal !important;
+  line-height: 1.45 !important;
+}
+
+// ── CV TYPOGRAPHY — unified font system ──
+
+// Role / project title (h6) — red, no link styling
+.cv h6.title {
+  font-family: 'EB Garamond', serif !important;
+  font-size: 17px !important;
+  font-weight: 600 !important;
+  color: var(--red) !important;
+  line-height: 1.3 !important;
+  margin-bottom: 3px !important;
+}
+
+.cv h6.title a {
+  color: inherit !important;
+  text-decoration: none !important;
+  pointer-events: none !important;
+  cursor: default !important;
+}
+
+// Institution and department cell text
+.cv table.institution td.institution,
+.cv table.institution td.department {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 10px !important;
+  color: var(--muted) !important;
+  vertical-align: middle !important;
+  padding-left: 6px !important;
+}
+
+// Location tag (appears under year, inside date column)
+.cv p.location {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 9px !important;
+  color: var(--muted) !important;
+  margin-top: 5px !important;
+  margin-bottom: 0 !important;
+  line-height: 1.4 !important;
+  text-align: left !important;
+  word-break: break-word !important;
+}
+
+.cv p.location i {
+  color: var(--muted) !important;
+  font-size: 8px !important;
+  margin-right: 3px !important;
+}
+
+// Description bullet text
+.cv ul.items li .item,
+.cv ul.items li .item-title {
+  font-family: 'EB Garamond', serif !important;
+  font-size: 14.5px !important;
+  color: var(--ink) !important;
+  line-height: 1.6 !important;
+}
+
+// Nested list section titles (Languages, ML Libraries, etc.)
+.cv .list-group-item h5 {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 9px !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  color: var(--ink) !important;
+  margin-bottom: 6px !important;
+}
+
+// Nested list subitem values
+.cv ul.subitems li .subitem {
+  font-family: 'EB Garamond', serif !important;
+  font-size: 13px !important;
+  color: var(--ink) !important;
+}
+
+// ── RESPONSIVE: TABLET (≤ 992px) — hamburger kicks in here ──
+@media (max-width: 992px) {
+  // Reduce padding so boxes use full width
+  .navbar .container {
+    padding: 16px 24px !important;
+    flex-wrap: wrap !important;
+  }
+
+  .container.mt-5 {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+
+  // Scale down hero title
+  .post .post-title {
+    font-size: 52px !important;
+  }
+
+  // CV page title
+  .cv-page h1 {
+    font-size: 44px !important;
+  }
+
+  // Projects page title
+  .projects h1 {
+    font-size: 44px !important;
+  }
+
+  // Profile card: float at narrower width, slightly smaller text
+  .profile {
+    width: 200px !important;
+    margin-left: 20px !important;
+  }
+
+  .profile .address {
+    font-size: 9px !important;
+  }
+
+  .profile .more-info p {
+    font-size: 12px !important;
+  }
+
+  // Hamburger button styling
+  .navbar-toggler {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 5px !important;
+    border: 1px solid var(--rule) !important;
+    border-radius: 2px !important;
+    padding: 8px 10px !important;
+    background: transparent !important;
+    cursor: pointer !important;
+  }
+
+  .navbar-toggler .icon-bar {
+    display: block !important;
+    width: 20px !important;
+    height: 2px !important;
+    background: var(--ink) !important;
+    border-radius: 1px !important;
+    transition: opacity 0.2s !important;
+  }
+
+  // Collapsed nav: vertical list, full-width dropdown
+  .navbar-collapse {
+    flex-basis: 100% !important;
+    background: var(--bg) !important;
+    border-top: 1px solid var(--rule) !important;
+    padding: 12px 0 8px !important;
+    margin-top: 8px !important;
+  }
+
+  .navbar-nav {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    width: 100% !important;
+  }
+
+  .nav-item {
+    width: 100% !important;
+  }
+
+  .nav-item .nav-link {
+    padding: 10px 20px !important;
+    font-size: 10px !important;
+    letter-spacing: 0.2em !important;
+    border-bottom: none !important;
+    width: 100% !important;
+    display: block !important;
+  }
+
+  .nav-item.active .nav-link {
+    border-bottom: none !important;
+    border-left: 2px solid var(--red) !important;
+    padding-left: 18px !important;
+    color: var(--red) !important;
+  }
+
+  // Dark mode toggle sits inline after logo, not in collapsed menu visually
+  .toggle-container {
+    padding: 10px 20px !important;
+    width: 100% !important;
+  }
+
+  footer {
+    padding: 10px 24px !important;
+  }
+}
+
+// ── RESPONSIVE: MOBILE (≤ 768px) ──
+@media (max-width: 768px) {
+  // Gutters
+  .navbar .container {
+    padding: 12px 16px !important;
+  }
+
+  .container.mt-5 {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  // Hero title
+  .post .post-title {
+    font-size: 38px !important;
+    line-height: 1.1 !important;
+  }
+
+  // CV / projects page h1
+  .cv-page h1,
+  .projects h1 {
+    font-size: 32px !important;
+  }
+
+  // Post description subtitle
+  .post-description {
+    font-size: 15px !important;
+  }
+
+  // About page: single column — profile stacks above text
+  .profile {
+    float: none !important;
+    width: 100% !important;
+    max-width: 280px !important;
+    margin: 0 auto 24px auto !important;
+    display: block !important;
+  }
+
+  .profile .address {
+    font-size: 10px !important;
+  }
+
+  .profile .more-info p {
+    font-size: 13px !important;
+  }
+
+  // Ensure article text flows below the profile card
+  .post article {
+    clear: both !important;
+  }
+
+  // CV section cards: force single column, full width
+  .cv {
+    display: block !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  .cv > div:first-of-type,
+  .cv > div:not(:first-of-type) {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+    position: static !important;
+  }
+
+  // CV list rows: allow wrapping so date stacks above content
+  .cv .list-group-item > .row {
+    flex-wrap: wrap !important;
+  }
+
+  // Date column: full width on mobile, horizontal badge
+  .cv .list-group-item > .row > .col-xs-2,
+  .cv .list-group-item > .row > .col-sm-2,
+  .cv .list-group-item > .row > .col-md-2 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 8px !important;
+    margin-bottom: 6px !important;
+    padding-top: 0 !important;
+  }
+
+  // Content column: full width
+  .cv .list-group-item > .row > .col-xs-10,
+  .cv .list-group-item > .row > .col-sm-10,
+  .cv .list-group-item > .row > .col-md-10 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    margin-top: 0 !important;
+  }
+
+  // Logo: smaller on mobile, inline with badge
+  .cv-resume-logo {
+    width: 48px !important;
+    height: 48px !important;
+  }
+
+  // Remove left margin indent on mobile
+  .cv h6.ml-1,
+  .cv h6.ml-md-4,
+  .cv ul.items {
+    margin-left: 0 !important;
+  }
+
+  // CV section header font
+  .cv .card-title {
+    font-size: 12px !important;
+  }
+
+  // CV entry title
+  .cv h6.title {
+    font-size: 15px !important;
+  }
+
+  footer {
+    padding: 10px 16px !important;
+  }
+}
+
+// ── PROJECTS PAGE ──
+.projects h1 {
+  font-family: 'EB Garamond', serif !important;
+  font-size: 60px !important;
+  font-weight: 500 !important;
+  font-style: italic !important;
+  color: var(--ink) !important;
+  line-height: 1.0 !important;
+  margin-bottom: 10px !important;
+}
+
+.projects .subtitle {
+  font-family: 'EB Garamond', serif !important;
+  font-size: 18px !important;
+  color: var(--muted) !important;
+  font-style: italic !important;
+  border-left: 2px solid var(--red);
+  padding-left: 16px;
+  margin-bottom: 36px !important;
+}
+
+.projects h2.category {
+  font-family: 'EB Garamond', serif !important;
+  font-size: 15px !important;
+  letter-spacing: 0.3em !important;
+  text-transform: uppercase !important;
+  color: var(--red) !important;
+  border-bottom: 1px solid var(--rule) !important;
+  padding-bottom: 10px !important;
+  margin: 40px 0 22px !important;
+  font-weight: 500 !important;
+}
+
+.projects .card.hoverable {
+  background: var(--bg2) !important;
+  border: 1px solid var(--rule) !important;
+  border-radius: 0 !important;
+  box-shadow: var(--shadow) !important;
+  height: 100%;
+  margin-bottom: 20px !important;
+  transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.projects .card.hoverable:hover {
+  border-color: rgba(184, 50, 50, 0.5) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 3px 3px 0 rgba(184, 50, 50, 0.07) !important;
+}
+
+.projects .card-body {
+  padding: 26px !important;
+}
+
+.projects .card-title {
+  font-family: 'EB Garamond', serif !important;
+  font-size: 21px !important;
+  font-weight: 500 !important;
+  color: var(--ink) !important;
+  line-height: 1.3 !important;
+  margin-bottom: 10px !important;
+}
+
+.projects .card-text {
+  font-family: 'EB Garamond', serif !important;
+  font-size: 16px !important;
+  color: var(--ink2) !important;
+  line-height: 1.6 !important;
+}
+
+// ── CONTACT ICONS (about page bottom) ──
+.post .social .contact-icons {
+  font-size: 2rem !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 1rem !important;
+}
+
+.post .social .contact-icons a {
+  color: var(--red) !important;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.post .social .contact-icons a:hover {
+  color: var(--red) !important;
+  opacity: 0.85;
+  transform: translateY(-2px);
+  text-decoration: none !important;
+}
+
+.post .social .contact-icons a i,
+.post .social .contact-icons a i::before {
+  color: var(--red) !important;
+}
+
+.post .social .contact-icons a svg,
+.post .social .contact-icons a img {
+  width: 1.75rem !important;
+  height: 1.75rem !important;
+  margin-bottom: 0.25rem !important;
+  color: var(--red) !important;
+  fill: var(--red) !important;
+}
+
+.post .social .contact-icons a:hover i::before,
+.post .social .contact-icons a:hover svg {
+  color: var(--red) !important;
+  fill: var(--red) !important;
+}
+
+// ── FOOTER ──
+footer {
+  background: var(--bg) !important;
+  border-top: 1px solid var(--rule) !important;
+  padding: 6px 72px !important;
+  margin-top: 0 !important;
+  color: var(--ink) !important;
+  line-height: 1.4 !important;
+}
+
+footer .container {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  text-align: center !important;
+}
+
+footer span {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 10px !important;
+  color: var(--ink) !important;
+  letter-spacing: 0.08em !important;
+}
+
+footer a {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 10px !important;
+  color: var(--red) !important;
+  letter-spacing: 0.08em !important;
+  text-decoration: none;
+}
+
+// scrollbars
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--muted);
+}
+
+// ── INDIVIDUAL PROJECT PAGES (same aesthetic as cards) ──
+.project-page {
+  background: var(--bg2) !important;
+  border: 1px solid var(--rule) !important;
+  border-radius: 0 !important;
+  box-shadow: var(--shadow) !important;
+  padding: 32px 36px !important;
+  margin-top: 40px !important;
+}
+
+.project-page .post-header {
+  margin-bottom: 18px !important;
+}
+
+.project-page .post-title {
+  font-size: 32px !important;
+  margin-bottom: 6px !important;
+}
+
+.project-page .post-description {
+  font-size: 15px !important;
+  margin-bottom: 20px !important;
+}
+
+.project-page article p {
+  font-size: 16px !important;
+}
+
+// ── DARK MODE OVERRIDES ──
+// Re-define all custom tokens so every var(--ink), var(--bg) etc. resolves correctly
+html[data-theme="dark"] {
+  --bg:   #111111;
+  --bg2:  #1a1a1a;
+  --bg3:  #222222;
+  --ink:  #e8e2d9;
+  --ink2: #c8c0b4;
+  --muted: #6e6459;
+  --red:  #c84040;
+  --red-dim: #8a2424;
+  --rule: rgba(232, 226, 217, 0.10);
+
+  --global-theme-color: #b83232;
+  --global-hover-color: #d04040;
+  --global-hover-text-color: #b83232;
+  --global-bg-color: #111111;
+  --global-text-color: #e8e2d9;
+  --global-text-color-light: #6e6459;
+  --global-footer-bg-color: #111111;
+  --global-footer-text-color: #e8e2d9;
+  --global-footer-link-color: #c84040;
+  --global-card-bg-color: #1a1a1a;
+  --global-code-bg-color: #1e1e1e;
+  --global-divider-color: #2e2e2e;
+}
+
+html[data-theme="dark"],
+html[data-theme="dark"] body {
+  background: var(--bg) !important;
+  color: var(--ink) !important;
+}
+
+html[data-theme="dark"] body::after {
+  opacity: 0.12;
+}
+
+// Navbar
+html[data-theme="dark"] .navbar {
+  background: var(--bg) !important;
+  border-bottom-color: var(--rule) !important;
+}
+
+html[data-theme="dark"] .navbar-brand.title {
+  color: var(--ink) !important;
+}
+
+html[data-theme="dark"] .nav-item .nav-link {
+  color: var(--muted) !important;
+}
+
+html[data-theme="dark"] .nav-item.active .nav-link {
+  color: var(--red) !important;
+  border-bottom-color: var(--red) !important;
+}
+
+// Cards & containers
+html[data-theme="dark"] .card,
+html[data-theme="dark"] .card.hoverable,
+html[data-theme="dark"] .project-page,
+html[data-theme="dark"] .cv > div,
+html[data-theme="dark"] .list-group-item {
+  background: var(--bg) !important;
+  border-color: var(--rule) !important;
+  color: var(--ink) !important;
+}
+
+// Profile card stays red in dark mode with white text
+html[data-theme="dark"] .profile {
+  background: var(--red) !important;
+  border-color: var(--red-dim) !important;
+  color: #ffffff !important;
+}
+
+html[data-theme="dark"] .profile .address,
+html[data-theme="dark"] .profile .address a,
+html[data-theme="dark"] .profile .more-info p {
+  color: #ffffff !important;
+}
+
+// Tables
+html[data-theme="dark"] table,
+html[data-theme="dark"] .table {
+  color: var(--ink) !important;
+}
+
+html[data-theme="dark"] .table td,
+html[data-theme="dark"] .table th {
+  border-color: var(--rule) !important;
+  color: var(--ink) !important;
+}
+
+// Footer
+html[data-theme="dark"] footer {
+  background: var(--bg) !important;
+  border-top-color: var(--rule) !important;
+}
+
+html[data-theme="dark"] footer .container,
+html[data-theme="dark"] footer span,
+html[data-theme="dark"] footer p {
+  color: var(--ink) !important;
+}
+
+html[data-theme="dark"] footer a {
+  color: var(--red) !important;
+}
+
+// ── DARK MODE: CV PAGE ──
+// Bootstrap's .list-group-item and .card have hardcoded white backgrounds
+html[data-theme="dark"] .cv > div {
+  background: var(--bg2) !important;
+  border-color: var(--rule) !important;
+}
+
+html[data-theme="dark"] .cv .list-group-item {
+  background-color: var(--bg2) !important;
+  border-color: var(--rule) !important;
+  color: var(--ink) !important;
+}
+
+html[data-theme="dark"] .cv .card {
+  background: var(--bg2) !important;
+  border-color: var(--rule) !important;
+}
+
+html[data-theme="dark"] .cv .card-body {
+  background: var(--bg2) !important;
+}
+
+// CV table cells
+html[data-theme="dark"] .cv table td,
+html[data-theme="dark"] .cv table.table-cv td {
+  color: var(--ink) !important;
+  background: transparent !important;
+}
+
+// Post-title (CV page heading & PDF icon link)
+html[data-theme="dark"] .post-title,
+html[data-theme="dark"] .post-title a {
+  color: var(--ink) !important;
+}
+
+// CV page subtitle
+html[data-theme="dark"] .cv-page .cv-subtitle {
+  color: var(--muted) !important;
+  border-left-color: var(--red) !important;
+}
+
+// Scrollbars
+html[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: var(--bg2);
+}
+
+html[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: var(--muted);
+}
+

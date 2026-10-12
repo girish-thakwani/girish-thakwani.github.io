@@ -1,189 +1,187 @@
-cv:
-  name: Albert Einstein
-  label: Scientist
-  email: einstein@example.com
-  location: Princeton, NJ
-  image: ""
-  summary: A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time
+- title: General Information
+  type: map
+  contents:
+    - name: Full Name
+      value: Mrunalini Ramnath
+    - name: Contact
+      value: "mramnath@andrew.cmu.edu"
+    - name: Location
+      value: Pittsburgh, PA
+    - name: LinkedIn
+      value: "https://linkedin.com/in/mrunalini-ramnath"
+    - name: GitHub
+      value: "https://github.com/mrunalinir"
 
-  social_networks:
-    - network: X
-      username: AlbertEinstein
-    - network: GitHub
-      username: example
-    - network: LinkedIn
-      username: example
+- title: Education
+  type: time_table
+  contents:
+    - title: Master of Science, Artificial Intelligence & Innovation
+      institution: Carnegie Mellon University, Pittsburgh, PA
+      logo: /assets/img/logos/cmu.png
+      year: Expected May 2027
+      description:
+        - "Selected Coursework: Machine Learning (PhD), Deep Learning, AI Engineering, Adv. Natural Language Processing, Multimodal Machine Learning, Computational Data Science, Data Structures and Algorithms"
+    - title: Bachelor of Engineering, Electronics & Communication Engineering; Master of Science, Physics
+      institution: Birla Institute of Technology & Science, Pilani, Hyderabad, India
+      logo: /assets/img/logos/bits.png
+      year: Jun 2022
+      description:
+        - "Selected Coursework: Artificial Intelligence, Object-Oriented Programming, Operating Systems, Digital Image Processing"
 
-  address:
-    street: 2712 Broadway St
-    city: San Francisco
-    region: California
-    postalCode: CA 94115
-    countryCode: US
+- title: Professional Experience
+  type: time_table
+  contents:
+    - title: Machine Learning Engineer
+      institution: Apple, Austin, TX
+      logo: /assets/img/logos/apple.png
+      year: May 2026 - Present
+      description:
+        - Experimented with cache-aware routing methods for LLM deployments so requests are directed to pods that already hold the relevant cache, and extended cache usage through tiered caching across CPU, local storage, and GPU VRAM.
+        - Tested deployment strategies such as prefill-decode disaggregation to improve GPU utilization for Endor use cases.
+        - Integrated a high-GPU-throughput hybrid strategy into production models.
+    - title: Sr Machine Learning Engineer (Sr Analyst)
+      institution: American Express, Bengaluru, India
+      logo: /assets/img/logos/amex.png
+      year: Feb 2024 - Jun 2025
+      description:
+        - Engineered feature optimization and modernisation for global credit card POS risk (20M+ transactions, 6M+ customers daily); drove 43% feature compression via clustering and variance-threshold pruning, achieving +6% Gini on XGBoost/AXGBoost.
+        - Reduced compute/storage costs by 16% on 100M+ daily batch updates through intelligent feature selection; built feature performance dashboards and led global rollout strategy; recognized with SVP Star of the Quarter 3x (top 0.01% of org).
+    - title: Machine Learning Engineer (Analyst)
+      institution: American Express, Bengaluru, India
+      logo: /assets/img/logos/amex.png
+      year: Jul 2022 - Jan 2024
+      description:
+        - Engineered feature enablement for global real-time payment risk system (2.5M+ payments, 1.5M+ customers daily); led full IBM mainframe-to-cloud migration of data across models, business strategy, and logs, leading to an annual $15M+ benefit.
+        - Designed and built a pre/post-migration production validation framework (Python, PySpark, HiveQL) with automated feature quality checks and drift detection to validate XGBoost/AXGBoost model consistency across cutover.
+        - Reduced feature dimensionality by 32% via tree-importance, correlation, and mutual-information filtering; achieved +4% Gini improvement and 12% compute/storage cost reduction on payment risk scoring.
+    - title: Machine Learning Engineer Intern (Analyst Intern)
+      institution: American Express, Bengaluru, India
+      logo: /assets/img/logos/amex.png
+      year: Jan 2022 - Jun 2022
+      description:
+        - Engineered production XGBoost credit-risk features impacting 80M+ cardholders; automated UAT and production integration validation for feature deployments saving 2500+ QA hours/quarter.
+        - Remediated critical false-alerts in data drift monitoring system by 13%; improved alert precision by reducing feature noise.
+    - title: Software Development Intern
+      institution: Adobe, Bengaluru, India (Remote)
+      logo: /assets/img/logos/adobe.png
+      year: May 2021 - Jul 2021
+      description:
+        - Vulnerability Review: Analyzed and enhanced 10+ Kubernetes clusters; documented 15+ critical security gaps
+        - Benchmarking: Evaluated kube-bench/kube-hunter/AquaSecurity/kube-score/kubesec, improving coverage 26%
+        - Remediation Plan: Proposed remediations that cut monitoring overhead 15% with seamless integration
+    - title: Summer Intern
+      institution: Telangana E-Governance, Hyderabad, Telangana
+      logo: /assets/img/logos/telangana.png
+      year: May 2019 - July 2019
+      description:
+        - Conceptualized and developed a website for automating municipality complaint registration and tracking
+        - Streamlined complaint handling by implementing a multi-level user hierarchy using Django and PostgreSQL
+        - Published dashboards for regular tracking using JS, HTML and CSS for the front-end of the website
 
-  sections:
-    Education:
-      - institution: University of Zurich
-        location: Zurich, Switzerland
-        url: https://www.uzh.ch/
-        area: Physics
-        studyType: PhD
-        start_date: 1900
-        end_date: 1905
-        score: ""
-        courses: "Theory of Relativity"
-        highlights:
-          - Description 1.
-          - Description 2.
+- title: Academic Projects
+  type: time_table
+  contents:
+    - title: "ZulipGPT: LLM Integration for Chat Summarization in Open-Source Messaging"
+      institution: Pittsburgh, PA
+      logo: /assets/img/logos/zulip.png
+      year: Jan 2026 - Feb 2026
+      description:
+        - Shipped chat and inbox summarization into the Zulip open-source codebase with topic-drift detection and citation-backed prompts to reduce hallucination and injection risk.
+        - Built a deterministic identity-masking pipeline using keyed pseudonym mapping before inference, providing a stronger privacy guarantee than post-hoc PII filtering since the model never sees real identities.
+        - Cut summarization latency to under 15 seconds via trigger-based invocation, rolling context windows, and message batching.
+    - title: Real-Time Movie Recommendation Platform
+      institution: Pittsburgh, PA
+      logo: /assets/img/logos/cmu.png
+      year: Jan 2025 - Present
+      description:
+        - Trained SVD collaborative filtering model on ~200K Kafka interactions; deployed Flask API (<50ms latency) with Docker and automated retraining every 3 days. Designed hybrid cold-start solution achieving 85%+ coverage on new users.
+        - Built end-to-end data pipeline (schema validation, drift detection, offline/online evaluation: NDCG@10 0.52, HR@10 0.68) with CI/CD testing (82% coverage). Set up monitoring dashboard tracking >99% availability, model accuracy, costs, data drift.
+        - Designed A/B testing infrastructure, experimented and found cold-start causes a +8% NDCG@10.
+    - title: "SteelRAG: Hybrid Sparse-Dense Retrieval over a Crawled Local Knowledge Corpus"
+      institution: Carnegie Mellon University (CMU), Pittsburgh, PA
+      logo: /assets/img/logos/cmu.png
+      year: Jan 2026 - Mar 2026
+      description:
+        - Built a 5,334-document corpus from 20+ sources via three targeted scraping rounds guided by gap analysis of ~117 unanswered question clusters; corpus expansion alone drove a +6.8% absolute gain in a hybrid F-1, LLM-judge score.
+        - Implemented BM25 (bm25s), FAISS (all-MiniLM-L6-v2, 384-dim), and RRF from scratch; hybrid RRF outperformed dense-only by +4.46% across F1, Recall, ROUGE-L, and LLM Judge.
+        - Deployed Qwen2-7B-Instruct on Modal A10G GPU; batch embedding cut index build from 3hrs to under 15 mins, and reducing chunk size 200 to 100 words improved F1 by +1.40% with no recall loss.
 
-      - institution: Eidgenössische Technische Hochschule
-        location: Zurich, Switzerland
-        area: Physics
-        studyType: Federal teaching diploma
-        start_date: 1896
-        end_date: 1900
-        highlights:
-          - Description 1.
-          - Description 2.
+- title: Research Projects
+  type: time_table
+  contents:
+    - title: "Outcome-Aware Fine-Tuning of Vision-Language Models for Web Agents"
+      institution: Carnegie Mellon University (CMU), Pittsburgh, PA
+      logo: /assets/img/logos/cmu.png
+      year: Jan 2026 – May 2026
+      description:
+        - "Ran a controlled study isolating outcome supervision for web agents: LoRA fine-tuned Qwen3-VL-8B on 6,445 matched Multimodal Mind2Web examples, nearly doubling Step Success Rate over the zero-shot baseline (31.99% to 62.32%)."
+        - "Showed that adding structured page-transition labels to the training target gave no measurable gain over action-only SFT (task-level 95% CIs overlap), a null result that replicated across all three test splits."
+        - "Traced the regression to a terminal-action bias (predicting a child click over the parent hover) through dataset, schema, and failure-case analysis, supported by AXTree and chain-of-thought ablations."
+    - title: "Cross-Lingual Hallucination Detection in Multilingual LLMs"
+      institution: Carnegie Mellon University (CMU), Pittsburgh, PA
+      logo: /assets/img/logos/cmu.png
+      year: Sep 2025 – Dec 2025
+      description:
+        - "Tested whether correctness probes trained only on English hidden states of Qwen2.5-7B-Instruct can flag hallucinations zero-shot in Chinese, Thai, Vietnamese, and Indonesian; best probe reached 0.704 AUC on English and 0.64 to 0.68 across target languages with no target-language supervision."
+        - "Ran a full 28-layer sweep across six probe families and two extraction points, showing post-answer features and deeper layers transfer best and that the correctness signal is low-dimensional (random forests within 0.01 AUC of the MLP)."
+        - "Traced the dominant failure to confident hallucinations the hidden state does not expose, and to conflating knowledge absence with hallucination, motivating a three-way correct/uncertain/hallucinating labeling scheme."
+    - title: "PRISM: Probing Routed Information Flow via Structured Multimodal Bottlenecks"
+      institution: Carnegie Mellon University (CMU), Pittsburgh, PA
+      logo: /assets/img/logos/cmu.png
+      year: Sep 2025 – Dec 2025
+      description:
+        - "Designed & validated hierarchical fusion variant outperforming symmetric design by +2.7% (Acc2/F1); identified asymmetric (AV/VA) fusion matches symmetric performance with fewer parameters; a key insight for production multimodal model design."
+        - "Researched fusion efficiency in multimodal models; discovered that scaling fusion capacity (4 to 12 tokens) on CMU-MOSEI/MOSI hurts performance (-6% correlation), revealing architectural waste."
+    - title: "ScleraNext: Lightweight CNN Segmentation for Real-Time Biometric Identification"
+      institution: University of Ljubljana (UL), Ljubljana, Slovenia (Remote)
+      logo:
+      year: Jun 2021 – Dec 2021
+      description:
+        - "Optimized production iris/retinal segmentation pipeline: replaced cascaded 2-stage segmentation CNN with single compact model, reducing inference latency by 73% for edge deployment."
+        - "Benchmarked YOLO, U-Net, MobileNet, DenseNet on accuracy/latency tradeoffs and selected optimal U-net based model."
+    - title: "GraphAct: Graph-Structured Action Prediction for Web Agents"
+      institution: Carnegie Mellon University (CMU), Pittsburgh, PA
+      logo: /assets/img/logos/cmu.png
+      year: Sep 2025 – Dec 2025
+      description:
+        - "Identified element grounding, not action prediction, as the core failure mode on Multimodal Mind2Web, then fused a DOM graph attention network into a frozen Qwen3-VL-8B backbone via a gated cross-attention adapter and LoRA, all within a single 24GB GPU."
+        - "Lifted element accuracy from 12.7% (no graph) to 49.5% and beat the strongest multimodal baseline by ~12 points with step accuracy reaching ~41%; showed these gains did not fully reach task success (7.75%) due to error accumulation over long trajectories."
+        - "Traced fixation and anchor-bias failures to the static per-step graph and fragile node pruning, and proposed dynamic node masking and topology-aware retention as fixes."
 
-    Experience:
-      - company: Institute for Advanced Study, Princeton University
-        position: Professor of Theoretical Physics
-        location: Princeton University, NJ
-        start_date: 1933
-        end_date: 1955
-        summary: Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.
-        highlights:
-          - Relativity
-          - Description 2.
+- title: Leadership / Extracurricular
+  type: time_table
+  contents:
+    - title: Summer Internship Mentor
+      institution: American Express
+      logo: /assets/img/logos/amex.png
+      year: May 2024 - Jul 2024
+      description: []
+    - title: Training Coordinator
+      institution: Placement Unit, BITS Pilani-Hyderabad Campus
+      logo: /assets/img/logos/bits.png
+      year: April 2020 - April 2021
+      description: []
+    - title: Head of Web Development
+      institution: Verba Maximus, BITS Pilani-Hyderabad Campus
+      logo: /assets/img/logos/bits.png
+      year: Oct 2018 - Sept 2019
+      description: []
 
-      - company: California Institute of Technology
-        position: Visiting Professor
-        location: Pasadena, California, US
-        start_date: 1933
-        end_date: 1933
-        highlights:
-          - Description 1.
-          - Description 2.
-
-      - company: Kaiser Wilhelm Institute for Physics
-        position: Director
-        location: Berlin, Germany
-        start_date: 1917
-        end_date: 1933
-
-      - company: Karl-Ferdinand University
-        position: Professor of Theoretical Physics
-        location: Prague, Czechoslovakia
-        start_date: 1911
-        end_date: 1917
-
-      - company: University of Zurich
-        position: Associate Professor of Theoretical Physics
-        location: Zurich, Switzerland
-        start_date: 1909
-        end_date: 1911
-
-    Volunteer:
-      - company: People's Climate March
-        position: Lead Organizer
-        location: Zurich, Switzerland
-        start_date: 2014-04-01
-        end_date: 2015-07-01
-        summary: Lead organizer for the New York City branch of the People's Climate March, the largest climate march in history.
-        highlights:
-          - "Awarded 'Climate Hero' award by Greenpeace for my efforts organizing the march."
-          - "Men of the year 2014 by Time magazine"
-
-    Awards:
-      - title: Nobel Prize in Physics
-        authors:
-          - "Royal Swedish Academy of Sciences"
-        date: 1921-11-01
-        awarder: Royal Swedish Academy of Sciences
-        url: https://www.nobelprize.org/prizes/physics/1921/einstein/biographical/
-        summary: The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'
-
-      - title: Max Planck Medal
-        authors:
-          - "German Physical Society"
-        date: 2029
-        awarder: German Physical Society
-        summary: Awarded for outstanding scientific achievement
-
-    Publications:
-      - title: Zur Elektrodynamik bewegter Körper
-        authors:
-          - Albert Einstein
-        publisher: Annalen der Physik
-        releaseDate: 1905-06-30
-        url: https://en.wikisource.org/wiki/Translation:On_the_Electrodynamics_of_Moving_Bodies
-        summary: It concerned an interpretation of the Michelson–Morley experiment and the properties of light and time. Special relativity incorporates the principle that the speed of light is the same for all inertial observers regardless of the state of motion of the source.
-
-      - title: Über einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt
-        authors:
-          - Albert Einstein
-        publisher: Annalen der Physik
-        releaseDate: 1905-03-18
-        url: https://de.wikisource.org/wiki/Über_einen_die_Erzeugung_und_Verwandlung_des_Lichtes_betreffenden_heuristischen_Gesichtspunkt
-        summary: In the second paper, he applied the quantum theory to light to explain the photoelectric effect. In particular, he used the idea of light quanta (photons) to explain experimental results, but stressed the importance of the experimental results. The importance of his work on the photoelectric effect earned him the Nobel Prize in Physics in 1921.
-
-      - title: Die Grundlage der allgemeinen Relativitätstheorie
-        authors:
-          - Albert Einstein
-        publisher: Annalen der Physik
-        releaseDate: 1916-03-20
-        url: https://de.wikisource.org/wiki/Die_Grundlage_der_allgemeinen_Relativitätstheorie
-        summary: The publication of the theory of general relativity made him internationally famous. He was professor of physics at the universities of Zurich (1909–1911) and Prague (1911–1912), before he returned to ETH Zurich (1912–1914).
-
-    Skills:
-      - name: Physics
-        level: Master
-        icon: fa-solid fa-hashtag
-        keywords: "Quantum Mechanics, Quantum Computing, Quantum Information, Quantum Cryptography, Quantum Communication, Quantum Teleportation"
-
-    Languages:
-      - name: German
-        summary: "Native speaker"
-
-      - name: English
-        summary: "Fluent"
-
-    Interests:
-      - name: Physics
-        icon: fa-solid fa-tag
-        keywords: "Quantum Mechanics, Quantum Computing, Quantum Information, Quantum Cryptography, Quantum Communication, Quantum Teleportation"
-
-    Certificates:
-      - name: Machine Learning
-        date: 2018-01-01
-        issuer: Stanford University
-        icon: fa-solid fa-location-dot
-
-      - name: Quantum Computing
-        date: 2018-01-01
-        issuer: Stanford University
-        icon: fa-solid fa-tag
-
-      - name: Quantum Information
-        date: 2018-01-01
-        issuer: Stanford University
-        icon: fa-solid fa-envelope
-
-    Projects:
-      - name: Quantum Computing
-        summary: Quantum computing is the use of quantum-mechanical phenomena such as superposition and entanglement to perform computation. Computers that perform quantum computations are known as quantum computers.
-        highlights:
-          - Quantum Teleportation
-          - Quantum Cryptography
-        start_date: 2018-01-01
-        end_date: 2018-01-01
-
-    References:
-      - name: Professor John Doe
-        icon: fa-solid fa-laptop
-        reference: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit.
-
-      - name: Professor Jane Smith
-        icon: fa-solid fa-thumbtack
-        reference: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit.
+- title: Technical Skills
+  type: nested_list
+  contents:
+    - title: Languages
+      items:
+        - Python, C, C++, SQL, HiveQL, MATLAB, TypeScript, HTML/CSS, Git
+    - title: ML Libraries
+      items:
+        - PyTorch, TensorFlow, Scikit-Learn, Pandas, NumPy, PySpark, Apache Spark
+    - title: Machine Learning
+      items:
+        - Multimodal Models, LLMs, LMMs, VLMs, Computer Vision, Training/Optimization, Fine-Tuning, LoRA
+    - title: Frameworks & Libraries
+      items:
+        - HuggingFace Transformers, OpenCV, NLTK, Django, Flask
+    - title: Cloud & Platforms
+      items:
+        - AWS, Azure, Kubernetes, Docker

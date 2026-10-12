@@ -1,15 +1,15 @@
 ---
 layout: page
-title: projects
+title: PROJECTS
 permalink: /projects/
-description: A growing collection of your cool projects.
+description: Selected research and academic projects
 nav: true
 nav_order: 3
-display_categories: [work, fun]
 horizontal: false
+display_categories:
+  - research
+  - projects
 ---
-
-<!-- pages/projects.md -->
 <div class="projects">
 {% if site.enable_project_categories and page.display_categories %}
   <!-- Display categorized projects -->
@@ -19,6 +19,10 @@ horizontal: false
   </a>
   {% assign categorized_projects = site.projects | where: "category", category %}
   {% assign sorted_projects = categorized_projects | sort: "importance" %}
+  <!-- Projects with images come first so they fill the top row -->
+  {% assign projects_with_img = sorted_projects | where_exp: "project", "project.img" %}
+  {% assign projects_without_img = sorted_projects | where_exp: "project", "project.img == nil" %}
+  {% assign sorted_projects = projects_with_img | concat: projects_without_img %}
   <!-- Generate cards for each project -->
   {% if page.horizontal %}
   <div class="container">

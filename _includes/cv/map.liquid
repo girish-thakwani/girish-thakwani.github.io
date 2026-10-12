@@ -1,0 +1,45 @@
+<table class="table table-cv table-sm table-borderless table-responsive cv-info-table">
+  {% for content in entry.contents %}
+    <tr>
+      <td class="p-1 cv-info-icon">
+        {% case content.name %}
+          {% when "Full Name" %}<i class="fa-solid fa-user"></i>
+          {% when "Contact" %}<i class="fa-solid fa-envelope"></i>
+          {% when "Location" %}<i class="fa-solid fa-location-dot"></i>
+          {% when "LinkedIn" %}<i class="fa-brands fa-linkedin"></i>
+          {% when "GitHub" %}<i class="fa-brands fa-github"></i>
+          {% else %}<i class="fa-solid fa-circle-dot"></i>
+        {% endcase %}
+      </td>
+      <td class="p-1 pr-2 cv-info-name">{{ content.name }}</td>
+      {% if content.value %}
+        <td class="p-1 pl-2 font-weight-light text cv-info-value">
+          {% if content.value contains '://' %}
+            <a href="{{ content.value }}" target="_blank" rel="noopener noreferrer">{{ content.value | remove: 'https://linkedin.com/in/' | remove: 'https://github.com/' | remove: 'https://' | remove: 'http://' }}</a>
+          {% elsif content.name == 'Contact' %}
+            <a href="mailto:{{ content.value }}">{{ content.value }}</a>
+          {% else %}
+            {{ content.value }}
+          {% endif %}
+        </td>
+      {% endif %}
+      {% if content.links %}
+        <td class="p-1 pl-2 font-weight-light text">
+          <div class="container-pdf">
+            {% for item in content.links %}
+              {% if item.link %}
+                <div class="container-link-button">
+                  {% if item.name %}
+                    <a href="{{ item.link }}" target="_blank" class="btncv z-depth-0">{{ item.name }}</a>
+                  {% else %}
+                    <a href="{{ item.link }}" target="_blank" class="btncv z-depth-0">doc</a>
+                  {% endif %}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </td>
+      {% endif %}
+    </tr>
+  {% endfor %}
+</table>
