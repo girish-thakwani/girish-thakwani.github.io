@@ -2,25 +2,25 @@
 layout: about
 title: about
 permalink: /
-subtitle: Artificial Intelligence | Development
+subtitle: AI Engineer | Agentic AI
 
 profile:
   align: right
-  image: updated_dp.jpg
+  image: dp.PNG
   image_circular: false
   more_info: > 
-      <p>📍 Jaipur, IN</p>
-      <p><a href="mailto:girish@justyouapparels.in">Email</a></p>
-      <p><a href="www.linkedin.com/in/girish-thakwani-087558126" target="_blank">LinkedIn</a></p>
-      <p><a href="https://github.com/girish-thakwani" target="_blank">GitHub</a></p>
-      <p><a href="" target="_blank">Resume</a></p>
+      <p>Jaipur, India</p>
+      <p><a href="mailto:thakwanigirish@gmail.com">Email</a></p>
+      <p><a href="https://www.linkedin.com/in/girish-thakwani-087558126" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+      <p><a href="https://github.com/girish-thakwani" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+      <p><a href="https://drive.google.com/file/d/1CgPmPa8RlKjsmS0gdrDU9upvwk-wxdz4/view?usp=sharing">Resume</a></p>
 
 # selected_papers: true  # Hidden - not currently used
 selected_papers: false
 social: false
 
 announcements:
-  enabled: true
+  enabled: false
   scrollable: true
   limit: 5
 
@@ -31,8 +31,8 @@ latest_posts:
   limit: 3
 ---
 
-I'm a Applied AI Tech Lead at [Justyou](https://justyouapparels.in), where I build and deploy AI systems to solve real-world problems. I'm particularly interested in **VLMs**, **LLMs**, **Multimodal Models**, and **AI agents**, with a focus on efficient model adaptation and building reliable, responsible AI applications.
+I'm an **AI Technical Lead** at [Justyou Apparels](https://justyouapparels.in) in Jaipur, India, where i build and deploy AI/ML applications to solve real world problems. I am particularly interested in **VLMs**, **LLMs**, **Multimodal Models** and **AI Agents** with a focus on efficient model adaptation and building reliable, responsible AI applications.
 
-I completed my undergraduate studies at [JECRC Univerity](https://jecrcuniversity.edu.in/) and have worked across industry at [**Lawnics Technologies**](https://lawnics.com/), and the [Technology Lead](https://justyouapparels.in), developing working with large-scale AI systems in production settings.
+My experience spans AI engineering, software development, and technical leadership. I previously worked as a Software Development Engineer at [Lawnics Technologies](https://lawnics.com), and earned a [Bachelor of Technology in Computer Science and Engineering](https://jecrcuniversity.edu.in/admission/b-tech-computer-science-and-engineering/) from [JECRC University](https://jecrcuniversity.edu.in/).
 
-Feel free to explore my projects or reach out via [email](mailto:girish@justyouapparels.in), [LinkedIn](www.linkedin.com/in/girish-thakwani-087558126), or [GitHub](https://github.com/girish-thakwani). You can also check my [CV](/cv/) for the complete rundown.
+Feel free to explore my projects or reach out via [email](mailto:thakwanigirish@gmail.com), [LinkedIn](https://www.linkedin.com/in/girish-thakwani-087558126), or [GitHub](https://github.com/girish-thakwani). You can also check my [CV](/cv/) for the complete rundown.

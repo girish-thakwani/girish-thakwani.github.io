@@ -5,56 +5,52 @@ on:
     branches:
       - master
       - main
-    paths:
-      - "assets/**"
-      - "**.bib"
-      - "**.html"
-      - "**.js"
-      - "**.liquid"
-      - "**/*.md"
-      - "**.yml"
-      - "Gemfile"
-      - "Gemfile.lock"
-      - "!.github/workflows/axe.yml"
-      - "!.github/workflows/broken-links.yml"
-      - "!.github/workflows/deploy-docker-tag.yml"
-      - "!.github/workflows/deploy-image.yml"
-      - "!.github/workflows/docker-slim.yml"
-      - "!.github/workflows/lighthouse-badger.yml"
-      - "!.github/workflows/prettier.yml"
-      - "!lighthouse_results/**"
-      - "!docs/CONTRIBUTING.md"
-      - "!docs/CUSTOMIZE.md"
-      - "!docs/FAQ.md"
-      - "!docs/INSTALL.md"
-      - "!README.md"
+      - source
+    paths-ignore:
+      - ".github/workflows/axe.yml"
+      - ".github/workflows/broken-links.yml"
+      - ".github/workflows/broken-links-site.yml"
+      - ".github/workflows/codeql.yml"
+      - ".github/workflows/deploy-docker-tag.yml"
+      - ".github/workflows/deploy-image.yml"
+      - ".github/workflows/docker-slim.yml"
+      - ".github/workflows/lighthouse-badger.yml"
+      - ".github/workflows/prettier.yml"
+      - ".github/workflows/prettier-html.yml"
+      - ".github/workflows/prettier-comment-on-pr.yml"
+      - "lighthouse_results/**"
+      - "readme_preview/**"
+      - "CONTRIBUTING.md"
+      - "CUSTOMIZE.md"
+      - "FAQ.md"
+      - "INSTALL.md"
+      - "README.md"
+      - "LICENSE"
   pull_request:
     branches:
       - master
       - main
-    paths:
-      - "assets/**"
-      - "**.bib"
-      - "**.html"
-      - "**.js"
-      - "**.liquid"
-      - "**/*.md"
-      - "**.yml"
-      - "Gemfile"
-      - "Gemfile.lock"
-      - "!.github/workflows/axe.yml"
-      - "!.github/workflows/broken-links.yml"
-      - "!.github/workflows/deploy-docker-tag.yml"
-      - "!.github/workflows/deploy-image.yml"
-      - "!.github/workflows/docker-slim.yml"
-      - "!.github/workflows/lighthouse-badger.yml"
-      - "!.github/workflows/prettier.yml"
-      - "!lighthouse_results/**"
-      - "!docs/CONTRIBUTING.md"
-      - "!docs/CUSTOMIZE.md"
-      - "!docs/FAQ.md"
-      - "!docs/INSTALL.md"
-      - "!README.md"
+      - source
+    paths-ignore:
+      - ".github/workflows/axe.yml"
+      - ".github/workflows/broken-links.yml"
+      - ".github/workflows/broken-links-site.yml"
+      - ".github/workflows/codeql.yml"
+      - ".github/workflows/deploy-docker-tag.yml"
+      - ".github/workflows/deploy-image.yml"
+      - ".github/workflows/docker-slim.yml"
+      - ".github/workflows/lighthouse-badger.yml"
+      - ".github/workflows/prettier.yml"
+      - ".github/workflows/prettier-html.yml"
+      - ".github/workflows/prettier-comment-on-pr.yml"
+      - "lighthouse_results/**"
+      - "readme_preview/**"
+      - "CONTRIBUTING.md"
+      - "CUSTOMIZE.md"
+      - "FAQ.md"
+      - "INSTALL.md"
+      - "README.md"
+      - "LICENSE"
   workflow_dispatch:
 
 permissions:
@@ -66,26 +62,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v7
+        uses: actions/checkout@v4
       - name: Setup Ruby 💎
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.3.5"
           bundler-cache: true
       - name: Setup Python 🐍
-        uses: actions/setup-python@v7
+        uses: actions/setup-python@v5
         with:
           python-version: "3.13"
           cache: "pip" # caching pip dependencies
-      - name: Setup Node 🧰
-        uses: actions/setup-node@v7
-        with:
-          node-version: "20"
-          cache: "npm"
-      - name: Install JS deps 📦
-        run: npm ci
       - name: Update _config.yml ⚙️
-        uses: fjogeleit/yaml-update-action@dffe9a5223d84653c13374032382f6bb5de8e5ef # v0.17.0
+        uses: fjogeleit/yaml-update-action@main
         with:
           commitChange: false
           valueFile: "_config.yml"

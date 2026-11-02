@@ -2,10 +2,7 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/jekyll
 {
   "name": "Jekyll",
-  // Using a Dockerfile to fix the broken Yarn repository. See issue #3487.
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
+  "image": "mcr.microsoft.com/devcontainers/jekyll",
 
   // Features to add to the dev container. More info: https://containers.dev/features.
   "features": {
