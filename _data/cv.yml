@@ -44,9 +44,8 @@
       logo: /assets/img/logos/justyou.png
       year: "Aug 2022 - Mar 2025"
       description:
-        - "Led a team of 2 engineers (mentoring them) to build the company’s entire ERP, using FastAPI, PostgreSQL, Celery/Redis, React/Next.js, and AWS (EC2, RDS)."
+        - "Led a team of 2 engineers and built the company’s entire ERP, using FastAPI, PostgreSQL, Celery/Redis, React/Next.js, and AWS. Implemented manufacturing data pipeline within it that tracks incoming fabric and allocates it across garment components based on style-specific rules, reducing fabric loss by ~98% within 3 months."
         - "Solved a cash-flow crunch that was delaying vendor payments by building Playwright automations for WhatsApp (auto-sending product images on request) and Instagram lead generation (finding active buyers on niche pages and sending them the group invite). Cash sales (no credit) grew from ₹1.5 crore to ₹7 crore (~4.7x)."
-        - "Fixed slow website image loading by automating the conversion of images into lightweight HTML-rendered pixel data, so pages load as native HTML, cutting page load time from 6s to 2s."
         - "Cut the production cycle by ~80%, from 150-160 days to ~30 days (raw material purchase to production-ready), and scaled daily output from 90-100 to 1,500-1,600 pieces (~16x)."
         - "Built and managed a network of 25 large vendors, securing reliable supply and 8.25% better pricing/lead times."
         - "Scaled and led an organization of 400+ people across production, sales, and operations."
@@ -63,7 +62,7 @@
       institution: Lawnics Technologies
       location: Jaipur, India
       logo: /assets/img/logos/lawnics.png
-      year: "Jan 2022 - Jun 2022"
+      year: "Jan 2020 - Mar 2020"
       description:
         - "Integrated native C++ libraries into the Android environment using CMake build scripts, cutting image processing time by 60%."
         - "Delivered 2 production features end to end, from UI implementation to algorithm integration, with no disruption to existing app functionality."
