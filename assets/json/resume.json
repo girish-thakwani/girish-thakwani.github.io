@@ -9,6 +9,7 @@
     "summary": "",
     "location": {},
     "LinkedIn": "https://www.linkedin.com/in/girish-thakwani-087558126",
+    "Codeforces": "https://codeforces.com/profile/theSkynet",
     "Location": "Jaipur, India",
     "profiles": []
   },
@@ -46,7 +47,7 @@
       "summary": "",
       "location": "Jaipur, India",
       "highlights": [
-        "Built a production hybrid RAG + SQL chatbot, combining retrieval over 500+ pages of challans with invoice lookups from PostgreSQL (FastAPI backend), letting customers query statements and dispatch status, with 2.47s average end-to-end latency (10-document, 864-chunk eval corpus).  ",
+        "Built a production hybrid RAG + SQL chatbot, combining retrieval over 500+ pages of challans with invoice lookups from PostgreSQL (FastAPI backend), letting customers query statements and dispatch status, with 2.47s average end-to-end latency (10-document, 864-chunk eval corpus).",
         "Evaluated retrieval quality on a 60-query test set: a 70/30 weighted hybrid of HashingVectorizer TF-IDF and BM25 reached 92% accuracy versus 69% for TF-IDF alone.",
         "Cut peak memory from approximately 700MB (OOM crash) to 60 to 80MB by replacing TfidfVectorizer with HashingVectorizer, which keeps memory fixed as the corpus grows.",
         "Built three-layer anti-poisoning pipeline (regex sanitization, binary hard-cap trust scoring, retrieval-time blocking) to keep LLM answers reliable and safe against prompt injection through ingested documents.",
@@ -63,9 +64,8 @@
       "summary": "",
       "location": "Jaipur, India",
       "highlights": [
-        "Led a team of 2 engineers (mentoring them) to build the company’s entire ERP, using FastAPI, PostgreSQL, Celery/Redis, React/Next.js, and AWS (EC2, RDS).",
+        "Led a team of 2 engineers and built the company’s entire ERP, using FastAPI, PostgreSQL, Celery/Redis, React/Next.js, and AWS. Implemented manufacturing data pipeline within it that tracks incoming fabric and allocates it across garment components based on style-specific rules, reducing fabric loss by ~98% within 3 months.",
         "Solved a cash-flow crunch that was delaying vendor payments by building Playwright automations for WhatsApp (auto-sending product images on request) and Instagram lead generation (finding active buyers on niche pages and sending them the group invite). Cash sales (no credit) grew from ₹1.5 crore to ₹7 crore (~4.7x).",
-        "Fixed slow website image loading by automating the conversion of images into lightweight HTML-rendered pixel data, so pages load as native HTML, cutting page load time from 6s to 2s.",
         "Cut the production cycle by ~80%, from 150-160 days to ~30 days (raw material purchase to production-ready), and scaled daily output from 90-100 to 1,500-1,600 pieces (~16x).",
         "Built and managed a network of 25 large vendors, securing reliable supply and 8.25% better pricing/lead times.",
         "Scaled and led an organization of 400+ people across production, sales, and operations."
@@ -83,7 +83,7 @@
       "highlights": [
         "Improved four-corner detection accuracy from ~78% to ~92% on low-resolution and low-quality images (<2 MP, poor lighting, skewed angles) by tuning preprocessing and edge/contour logic, tested on 500+ sample documents.",
         "Designed data pipelines using PostgreSQL (relational) and Firebase (NoSQL), handling 10K+ records, and used Firebase Analytics to track user behavior and guide feature decisions.",
-        "Integrated Razorpay payments (checkout, webhooks, payment verification), processing 500+ transactions with a 98%+ success rate. "
+        "Integrated Razorpay payments (checkout, webhooks, payment verification), processing 500+ transactions with a 98%+ success rate."
       ]
     },
     {
@@ -91,8 +91,8 @@
       "position": "Android Developer (Intern)",
       "image": "/assets/img/logos/lawnics.png",
       "url": "http://www.lawnics.com",
-      "startDate": "2022-01-01",
-      "endDate": "2022-06-01",
+      "startDate": "2020-01-01",
+      "endDate": "2020-03-01",
       "summary": "",
       "location": "Jaipur, India",
       "highlights": [
