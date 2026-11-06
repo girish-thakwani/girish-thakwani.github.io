@@ -11,6 +11,8 @@
       value: "https://www.linkedin.com/in/girish-thakwani-087558126"
     - name: GitHub
       value: "https://github.com/girish-thakwani"
+    - name: Codeforces
+      value: "https://codeforces.com/profile/theSkynet"
 
 - title: Education
   type: time_table
