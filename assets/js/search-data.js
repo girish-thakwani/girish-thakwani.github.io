@@ -33,11 +33,6 @@ ninja.data = [{
           description: "A DOM graph transformer fused into Qwen3-VL with LoRA to fix element grounding on Multimodal Mind2Web",
           section: "Projects",handler: () => {
               window.location.href = "/projects/pingpilot-research/";
-            },},{id: "projects-pingpilot-automation-of-web-tasks-using-multimodal-llms-and-playwright",
-          title: 'PingPilot: Automation of Web Tasks using Multimodal LLMs and Playwright',
-          description: "A multimodal web agent for automating complex browser tasks",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/pingpilot/";
             },},{id: "teachings-data-science-fundamentals",
           title: 'Data Science Fundamentals',
           description: "This course covers the foundational aspects of data science, including data collection, cleaning, analysis, and visualization. Students will learn practical skills for working with real-world datasets.",
